@@ -1,7 +1,10 @@
 site_name: Jenny Website
+use_directory_urls: false
+docs_dir: gen_docs
 nav:
-  - Home: index.md
-  - Page 1: page1.md
-  - Page 2: page2.md
+  - Jenny's Tea & Quiet Moments: index.md
+  - Music: music.md
+  - Page 2: podcast.md
+  - relaxation: relaxation.md
 theme:
   name: material
