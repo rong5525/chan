@@ -38,8 +38,10 @@
 
 ## 更多页面
 
-- [Jenny's Tea & Quiet Moments](index.md)
+- [Drama](drama.md)
+- [A Quiet Moments](index.md)
 - [Music](music.md)
 - [Podcast](podcast.md)
+- [Variety](variety.md)
 
 <!-- AUTO-LINKS-END -->

@@ -21,7 +21,9 @@
 ## 更多页面
 
 - [Citywalk](citywalk.md)
-- [Jenny's Tea & Quiet Moments](index.md)
+- [Drama](drama.md)
+- [A Quiet Moments](index.md)
 - [Podcast](podcast.md)
+- [Variety](variety.md)
 
 <!-- AUTO-LINKS-END -->

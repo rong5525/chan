@@ -3,8 +3,10 @@ use_directory_urls: false
 docs_dir: gen_docs
 nav:
   - Citywalk: citywalk.md
-  - Jenny's Tea & Quiet Moments: index.md
+  - Drama: drama.md
+  - A Quiet Moments: index.md
   - Music: music.md
   - Podcast: podcast.md
+  - Variety: variety.md
 theme:
   name: material
