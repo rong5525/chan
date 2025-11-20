@@ -1,9 +1,9 @@
-/* 基础页面布局 */
+/* 整体背景 & 居中布局 */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: rgb(30,30,30);
+  background: rgb(30, 30, 30);
 }
 
 body {
@@ -12,11 +12,15 @@ body {
   align-items: center;
 }
 
-/* 外层容器：居中 + 最大宽度限制 */
+/* 外层容器：限制最大宽度，并整体向右上轻微平移 */
 .container {
   width: 100%;
   max-width: 520px;
   padding: 20px;
+
+  position: relative;
+  left: 14px;   /* 向右一点 */
+  top: -14px;   /* 向上一点 */
 }
 
 /* 居中文字 */
@@ -24,40 +28,40 @@ body {
   text-align: center;
 }
 
-/* 抖音风结构基础 */
+/* 基础结构 */
 .douyin-style {
   position: relative;
 }
 
-/* 主字体块：宽度自适应 + 字体自适应（最终调好） */
+/* 主字体块：宽度 + 字体大小都自适应 */
 .douyin-style-font {
   width: min(85vw, 420px);
   font-family: 'Anton', sans-serif;
   font-style: italic;
   letter-spacing: 3px;
 
-  /* 最终优化字体比例：可以适配所有手机屏幕 */
-  font-size: clamp(36px, 15vw, 86px);
+  /* 调好的自适应字号（手机不会太大，电脑也不小气） */
+  font-size: clamp(32px, 14vw, 80px);
 
   font-weight: 900;
   position: relative;
 }
 
-/* 叠加三层文字效果 */
+/* 叠加文字结构 */
 .douyin-style-title {
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 0.05em;
+  left: 0.05em;
   width: 100%;
 }
 
-/* 青色阴影 */
+/* 青色阴影（用 em 控制偏移，随字一起缩放） */
 .douyin-style-title:before {
   position: absolute;
-  top: -2px;
-  left: -2px;
+  top: -0.035em;
+  left: -0.035em;
   color: #02f7e7;
-  opacity: .85;
+  opacity: 0.85;
   z-index: 2;
   content: attr(data-title);
 }
@@ -66,37 +70,38 @@ body {
 .douyin-style-title span {
   position: relative;
   color: #ffffff;
-  opacity: .95;
+  opacity: 0.96;
   z-index: 3;
 }
 
 /* 粉色阴影 */
 .douyin-style-title:after {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  opacity: .85;
+  top: 0.035em;
+  left: 0.035em;
+  opacity: 0.85;
   color: #ff146d;
   z-index: 1;
   content: attr(data-title);
 }
 
-/* 链接 */
+/* 链接样式 */
 a {
   text-decoration: none;
   color: white;
 }
 
-/* 抖动效果层 */
+/* 抖动层：高度用 em，随字体缩放 */
 .douyin-style-font.shake {
   position: absolute;
   z-index: 9;
   width: 100%;
   left: var(--shake-offset);
-  height: var(--shake-height);
+
+  height: var(--shake-height); /* 传进来的 0.5em */
 
   overflow: hidden;
-  background: rgb(29,29,29);
+  background: rgb(29, 29, 29);
 
   animation: shake-body 1s steps(4) infinite;
   animation-delay: var(--shake-delay);
@@ -107,13 +112,13 @@ a {
   animation-delay: var(--shake-delay);
 }
 
-/* 动画 */
+/* 抖动动画：同样用 em，比例更自然 */
 @keyframes shake-body {
-  0% { top: 0; }
-  100% { top: 60px; }
+  0%   { top: 0; }
+  100% { top: 0.5em; }
 }
 
 @keyframes shake-content {
-  0% { margin-top: 0; }
-  100% { margin-top: -60px; }
+  0%   { margin-top: 0; }
+  100% { margin-top: -0.5em; }
 }
