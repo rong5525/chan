@@ -58,8 +58,8 @@ body {
 /* 青色阴影（用 em 控制偏移，随字一起缩放） */
 .douyin-style-title:before {
   position: absolute;
-  top: -0.005em;
-  left: -0.005em;
+  top: -0.05em;
+  left: -0.05em;
   color: #02f7e7;
   opacity: 0.85;
   z-index: 2;
@@ -68,7 +68,9 @@ body {
 
 /* 主文字 */
 .douyin-style-title span {
-  position: relative;
+  position: absolute;
+  top: 0em;
+  left: 0em;
   color: #ffffff;
   opacity: 0.96;
   z-index: 3;
@@ -77,8 +79,8 @@ body {
 /* 粉色阴影 */
 .douyin-style-title:after {
   position: absolute;
-  top: 0.005em;
-  left: 0.005em;
+  top: 0.05em;
+  left: 0.05em;
   opacity: 0.85;
   color: #ff146d;
   z-index: 1;
