@@ -1,4 +1,4 @@
-/* 1. 页面基础布局：取消 html 的绝对定位，改成居中布局 */
+/* 解决全局混乱布局问题 */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,30 +6,39 @@ html, body {
   background-color: rgb(30, 30, 30);
 }
 
+/* 居中布局：电脑居中，手机也居中 */
 body {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;  /* 让内容在手机/电脑都居中 */
 }
 
-/* 2. 你的 Douyin 样式，做成自适应宽度和字体大小 */
+/* 替换你的 absoluteCenter，避免定位破坏手机布局 */
+.absoluteCenter {
+  width: 100%;
+  max-width: 600px; /* 最大宽度 */
+  padding: 20px;
+}
+
+/* Douyin 样式保持不变，但宽度自适应 */
 .douyin-style {
   position: relative;
 }
 
+/* 关键：宽度自适应设备，不写死 450px */
 .douyin-style-font {
   font-weight: 700;
-  /* 原来固定 450px，改成：最大 450px，小屏用 80% 宽度 */
-  width: min(80vw, 450px);
-  position: relative;
-  animation: debounce 1s steps(3) infinite;
+  width: min(90vw, 450px); /* 手机宽度90%、最大450px */
 
-  /* 字体自适应：手机用 vw，电脑不超过 100px */
-  font-size: clamp(48px, 18vw, 100px);
+  font-size: clamp(48px, 18vw, 100px); /* 手机响应式字体大小 */
+
   font-style: italic;
   font-weight: bold;
   letter-spacing: 3px;
   font-family: 'Anton', sans-serif;
+
+  position: relative;
+  animation: debounce 1s steps(3) infinite;
 }
 
 .douyin-style-font .douyin-style-title {
@@ -49,7 +58,7 @@ body {
   content: attr(data-title);
 }
 
-.douyin-style-font .douyin-style-title span{
+.douyin-style-font .douyin-style-title span {
   position: relative;
   color: #FFF;
   z-index: 3;
@@ -66,12 +75,13 @@ body {
   content: attr(data-title);
 }
 
-/* 抖动层，保留你的逻辑，只是宽度改成跟上面一致 */
+/* 抖动层 */
 .douyin-style-font.shake {
   position: absolute;
   z-index: 9;
   left: var(--shake-offset);
   height: var(--shake-height);
+  width: 100%;
   overflow: hidden;
   background: rgb(29, 29, 29);
   animation: shake-body 1s steps(4) infinite;
@@ -83,37 +93,26 @@ body {
   animation-delay: var(--shake-delay);
 }
 
-/* 你的动画原样保留（顺便帮你把 0% 重复写成 0%/100%） */
+/* 动画修复 */
 @keyframes debounce {
-  0% {
-    margin-left: 2px;
-  }
-  100% {
-    margin-left: -4px;
-  }
+  0%   { margin-left: 2px; }
+  100% { margin-left: -4px; }
 }
 
 @keyframes shake-body {
-  0%   {
-    top: 0;
-  }
-  100% {
-    top: 60px;
-  }
+  0%   { top: 0; }
+  100% { top: 60px; }
 }
 
 @keyframes shake-content {
-  0%   {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: -60px;
-  }
+  0%   { margin-top: 0; }
+  100% { margin-top: -60px; }
 }
 
-/* 3. 针对小屏再微调一下（可选，但很有用） */
+/* 手机优化 */
 @media (max-width: 600px) {
   .douyin-style-font {
+    width: 90vw;
     font-size: clamp(40px, 20vw, 80px);
   }
 }
