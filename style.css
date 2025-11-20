@@ -1,21 +1,31 @@
-html {
-  background-color: rgb(30,30,30);
-  position: absolute;  
-  left:300px;
-  top:300px;
+/* 1. 页面基础布局：取消 html 的绝对定位，改成居中布局 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(30, 30, 30);
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* 让内容在手机/电脑都居中 */
+}
+
+/* 2. 你的 Douyin 样式，做成自适应宽度和字体大小 */
 .douyin-style {
   position: relative;
 }
 
 .douyin-style-font {
   font-weight: 700;
-  width:450px;
+  /* 原来固定 450px，改成：最大 450px，小屏用 80% 宽度 */
+  width: min(80vw, 450px);
   position: relative;
   animation: debounce 1s steps(3) infinite;
-  /** font style **/
-  font-size: 100px;
+
+  /* 字体自适应：手机用 vw，电脑不超过 100px */
+  font-size: clamp(48px, 18vw, 100px);
   font-style: italic;
   font-weight: bold;
   letter-spacing: 3px;
@@ -56,13 +66,14 @@ html {
   content: attr(data-title);
 }
 
+/* 抖动层，保留你的逻辑，只是宽度改成跟上面一致 */
 .douyin-style-font.shake {
   position: absolute;
   z-index: 9;
   left: var(--shake-offset);
   height: var(--shake-height);
   overflow: hidden;
-  background:rgb(29, 29, 29);
+  background: rgb(29, 29, 29);
   animation: shake-body 1s steps(4) infinite;
   animation-delay: var(--shake-delay);
 }
@@ -72,11 +83,12 @@ html {
   animation-delay: var(--shake-delay);
 }
 
+/* 你的动画原样保留（顺便帮你把 0% 重复写成 0%/100%） */
 @keyframes debounce {
   0% {
     margin-left: 2px;
   }
-  0% {
+  100% {
     margin-left: -4px;
   }
 }
@@ -96,5 +108,12 @@ html {
   }
   100% {
     margin-top: -60px;
+  }
+}
+
+/* 3. 针对小屏再微调一下（可选，但很有用） */
+@media (max-width: 600px) {
+  .douyin-style-font {
+    font-size: clamp(40px, 20vw, 80px);
   }
 }
