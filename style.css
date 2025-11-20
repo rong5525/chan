@@ -19,8 +19,8 @@ body {
   padding: 20px;
 
   position: relative;
-  left: 14px;   /* 向右一点 */
-  top: -14px;   /* 向上一点 */
+  left: 30px;   /* 向右一点 */
+  top: -30px;   /* 向上一点 */
 }
 
 /* 居中文字 */
