@@ -12,12 +12,12 @@
 
 ---
 
-[Back to Home](index.md)
+[Back to Home](main.md)
 
 ## More Pages
 
 - [Citywalk](citywalk.md)
-- [A Quiet Moments](index.md)
+- [A Quiet Moments](main.md)
 - [Music](music.md)
 - [Podcast](podcast.md)
 - [Variety](variety.md)

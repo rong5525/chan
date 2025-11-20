@@ -4,7 +4,6 @@ docs_dir: gen_docs
 nav:
   - Citywalk: citywalk.md
   - Drama: drama.md
-  - A Quiet Moments: index.md
   - Music: music.md
   - Podcast: podcast.md
   - Variety: variety.md
