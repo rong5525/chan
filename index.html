@@ -1,172 +1,56 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8" />
   <title>Jenny</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- 字体 -->
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
-  <!-- 自适应 + 抖音风样式，完全覆盖以前的 -->
-  <style>
-    /* 全局基础：去掉所有默认 margin/padding，设置背景 */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: rgb(30, 30, 30);
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* 外框，限制最大宽度，让 PC 和手机都居中 */
-    .absoluteCenter {
-      width: 100%;
-      max-width: 600px;
-      padding: 20px;
-    }
-
-    .douyin-style {
-      position: relative;
-    }
-
-    /* 关键：宽度和字体大小都用自适应 */
-    .douyin-style-font {
-      font-weight: 700;
-      width: min(90vw, 450px); /* 手机宽度 90%，最大 450px */
-      font-size: clamp(48px, 18vw, 100px); /* 字体随屏幕变化 */
-
-      font-style: italic;
-      font-weight: bold;
-      letter-spacing: 3px;
-      font-family: 'Anton', sans-serif;
-
-      position: relative;
-      animation: debounce 1s steps(3) infinite;
-    }
-
-    .douyin-style-title {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: inherit;
-    }
-
-    .douyin-style-title:before {
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      color: #00f5e7;
-      opacity: .8;
-      z-index: 2;
-      content: attr(data-title);
-    }
-
-    .douyin-style-title span {
-      position: relative;
-      color: #FFF;
-      z-index: 3;
-      opacity: .9;
-    }
-
-    .douyin-style-title:after {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      opacity: .8;
-      color: #ff0068;
-      z-index: 1;
-      content: attr(data-title);
-    }
-
-    /* 抖动层 */
-    .douyin-style-font.shake {
-      position: absolute;
-      z-index: 9;
-      left: var(--shake-offset);
-      height: var(--shake-height);
-      width: 100%;
-      overflow: hidden;
-      background: rgb(29, 29, 29);
-      animation: shake-body 1s steps(4) infinite;
-      animation-delay: var(--shake-delay);
-    }
-
-    .douyin-style-font.shake .douyin-style-title {
-      animation: shake-content 1s steps(4) infinite;
-      animation-delay: var(--shake-delay);
-    }
-
-    @keyframes debounce {
-      0%   { margin-left: 2px; }
-      100% { margin-left: -4px; }
-    }
-
-    @keyframes shake-body {
-      0%   { top: 0; }
-      100% { top: 60px; }
-    }
-
-    @keyframes shake-content {
-      0%   { margin-top: 0; }
-      100% { margin-top: -60px; }
-    }
-
-    /* 去掉链接下划线 */
-    a {
-      text-decoration: none;
-      color: white;
-    }
-
-    /* 手机下再微调一点字号 */
-    @media (max-width: 600px) {
-      .douyin-style-font {
-        width: 90vw;
-        font-size: clamp(40px, 20vw, 80px);
-      }
-    }
-  </style>
+  <!-- 外部 CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="absoluteCenter">
+
+  <div class="container">
+
     <div class="douyin-style">
-      <!-- 第一层 -->
+      <!-- 第 1 层 -->
       <div class="douyin-style-font">
         <div class="douyin-style-title" data-title="Jenny">
-          <div style="text-align: center;">
+          <div class="center">
             <span><a href="main.html">Jenny</a></span>
           </div>
         </div>
       </div>
 
-      <!-- 第二层抖动 -->
+      <!-- 第 2 层 shake -->
       <div class="douyin-style-font shake"
-           style="--shake-offset: -2px; --shake-height: 20px; --shake-delay: 0s;">
+        style="--shake-offset:-2px; --shake-height:20px; --shake-delay:0s;">
         <div class="douyin-style-title" data-title="Jenny">
-          <div style="text-align: center;">
+          <div class="center">
             <span><a href="main.html">Jenny</a></span>
           </div>
         </div>
       </div>
 
-      <!-- 第三层抖动 -->
+      <!-- 第 3 层 shake -->
       <div class="douyin-style-font shake"
-           style="--shake-offset: -5px; --shake-height: 10px; --shake-delay: 0.5s;">
+        style="--shake-offset:-5px; --shake-height:12px; --shake-delay:0.4s;">
         <div class="douyin-style-title" data-title="Jenny">
-          <div style="text-align: center;">
+          <div class="center">
             <span><a href="main.html">Jenny</a></span>
           </div>
         </div>
       </div>
+
     </div>
+
   </div>
+
 </body>
+
 </html>

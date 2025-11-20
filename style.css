@@ -1,89 +1,103 @@
-/* 解决全局混乱布局问题 */
+/* 基础页面布局 */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: rgb(30, 30, 30);
+  background: rgb(30,30,30);
 }
 
-/* 居中布局：电脑居中，手机也居中 */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 替换你的 absoluteCenter，避免定位破坏手机布局 */
-.absoluteCenter {
+/* 外层容器：居中 + 最大宽度限制 */
+.container {
   width: 100%;
-  max-width: 600px; /* 最大宽度 */
+  max-width: 520px;
   padding: 20px;
 }
 
-/* Douyin 样式保持不变，但宽度自适应 */
+/* 居中文字 */
+.center {
+  text-align: center;
+}
+
+/* 抖音风结构基础 */
 .douyin-style {
   position: relative;
 }
 
-/* 关键：宽度自适应设备，不写死 450px */
+/* 主字体块：宽度自适应 + 字体自适应（最终调好） */
 .douyin-style-font {
-  font-weight: 700;
-  width: min(90vw, 450px); /* 手机宽度90%、最大450px */
-
-  font-size: clamp(48px, 18vw, 100px); /* 手机响应式字体大小 */
-
-  font-style: italic;
-  font-weight: bold;
-  letter-spacing: 3px;
+  width: min(85vw, 420px);
   font-family: 'Anton', sans-serif;
+  font-style: italic;
+  letter-spacing: 3px;
 
+  /* 最终优化字体比例：可以适配所有手机屏幕 */
+  font-size: clamp(36px, 15vw, 86px);
+
+  font-weight: 900;
   position: relative;
-  animation: debounce 1s steps(3) infinite;
 }
 
-.douyin-style-font .douyin-style-title {
+/* 叠加三层文字效果 */
+.douyin-style-title {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: inherit;
+  width: 100%;
 }
 
-.douyin-style-font .douyin-style-title:before {
+/* 青色阴影 */
+.douyin-style-title:before {
   position: absolute;
   top: -2px;
   left: -2px;
-  color: #00f5e7;
-  opacity: .8;
+  color: #02f7e7;
+  opacity: .85;
   z-index: 2;
   content: attr(data-title);
 }
 
-.douyin-style-font .douyin-style-title span {
+/* 主文字 */
+.douyin-style-title span {
   position: relative;
-  color: #FFF;
+  color: #ffffff;
+  opacity: .95;
   z-index: 3;
-  opacity: .9;
 }
 
-.douyin-style-font .douyin-style-title:after {
+/* 粉色阴影 */
+.douyin-style-title:after {
   position: absolute;
   top: 2px;
   left: 2px;
-  opacity: .8;
-  color: #ff0068;
+  opacity: .85;
+  color: #ff146d;
   z-index: 1;
   content: attr(data-title);
 }
 
-/* 抖动层 */
+/* 链接 */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* 抖动效果层 */
 .douyin-style-font.shake {
   position: absolute;
   z-index: 9;
+  width: 100%;
   left: var(--shake-offset);
   height: var(--shake-height);
-  width: 100%;
+
   overflow: hidden;
-  background: rgb(29, 29, 29);
+  background: rgb(29,29,29);
+
   animation: shake-body 1s steps(4) infinite;
   animation-delay: var(--shake-delay);
 }
@@ -93,26 +107,13 @@ body {
   animation-delay: var(--shake-delay);
 }
 
-/* 动画修复 */
-@keyframes debounce {
-  0%   { margin-left: 2px; }
-  100% { margin-left: -4px; }
-}
-
+/* 动画 */
 @keyframes shake-body {
-  0%   { top: 0; }
+  0% { top: 0; }
   100% { top: 60px; }
 }
 
 @keyframes shake-content {
-  0%   { margin-top: 0; }
+  0% { margin-top: 0; }
   100% { margin-top: -60px; }
-}
-
-/* 手机优化 */
-@media (max-width: 600px) {
-  .douyin-style-font {
-    width: 90vw;
-    font-size: clamp(40px, 20vw, 80px);
-  }
 }
