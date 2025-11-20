@@ -8,8 +8,8 @@
 
 ## 页面导航
 
+- [Citywalk](citywalk.md)
 - [Music](music.md)
-- [Page 2](podcast.md)
-- [relaxation](relaxation.md)
+- [Podcast](podcast.md)
 
 <!-- AUTO-LINKS-END -->
