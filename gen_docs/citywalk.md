@@ -34,9 +34,9 @@
 
 ---
 
-[返回首页](index.md)
+[Back to Home](index.md)
 
-## 更多页面
+## More Pages
 
 - [Drama](drama.md)
 - [A Quiet Moments](index.md)

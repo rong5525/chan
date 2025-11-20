@@ -6,7 +6,7 @@ Jenny's Tea & Quiet Moments
 
 ---
 
-## 页面导航
+## Page Navigation
 
 - [Citywalk](citywalk.md)
 - [Drama](drama.md)
